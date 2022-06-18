@@ -1,8 +1,34 @@
-canvas{
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overflow: hidden;
+}
+#root {
+  overflow: hidden;
+}
+
+body {
+  overflow: hidden;
+  overscroll-behavior-y: none;
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir,
+    helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+    background-image:url(./Assets/background.png) ;
   width: 100%;
   height: 100%;
 }
 
-body {
-  margin: 0;
+canvas {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
 }

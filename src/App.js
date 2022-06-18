@@ -1,159 +1,24 @@
-import { Suspense, useRef } from "react";
-import * as THREE from "three";
-import { Path } from "./Assets/path";
-import { Canvas, useLoader } from "@react-three/fiber";
-import {
-  PointerLockControls,
-  Sky,
-} from "@react-three/drei";
-// import Plant from "./Assets/plant";
-import {
-  MathUtils,
-  PointLightHelper,
-  SpotLightHelper,
-  TextureLoader,
-} from "three";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { Player } from "./Assets/Player";
-import {
-  Physics,
-  useBox,
-  useCompoundBody,
-  usePlane,
-} from "@react-three/cannon";
-import {House,House1,House2,House3,Mcdonald} from "./Assets/Property";
-import Plant from "./Assets/plant";
-import { Grass, Grass1 } from "./Assets/grass";
-import Doggo from "./Assets/Doggo";
-import Trees from "./Assets/trees";
-
-function Horse() {
-  const [ref] = useCompoundBody(() => ({
-    position: [10, 10, 10],
-    rotation: [-Math.PI / 2, 0, 0],
-    scale: 0.01,
-    castShadow: true,
-    type:"Static"
-  }));
-  const gltf = useLoader(GLTFLoader, "./Horse.glb");
-  return (
-    <Suspense fallback={null}>
-      <primitive
-        object={gltf.scene}
-        scale={0.01}
-        position={[5, 0, 0]}
-        rotation={[0, -Math.PI / 2, 0]}
-      />
-    </Suspense>
-  );
-}
+import {React ,Suspense, useState, useEffect } from 'react';
+import { Route, Router, Switch } from 'react-router-dom';
+import './App.css';
+import Home from './Pages/Home'
+import Play from './Pages/Play';
 
 
-const Nature = (props) => {
-  const group = useRef();
-  const nature = [];
-  for (let i = 0; i < 100; i++) {
-    nature.push(
-      <group key={"object" + i}>
-        <Grass />
-        <Grass1 />
-        <Plant />
-      </group>
-    );
-  }
-  return (
-    <group ref={group} {...props} dispose={null}>
-      <group rotation={[-Math.PI / 2, 0, 0]}>{nature}</group>
-    </group>
-  );
-};
+const App = () => { 
 
-const Property = () => {
-  const a=[<House/>,<House1/>,<House2/>,<House3/>,<Mcdonald/>]  
-  return (
-    <Suspense fallback={null}>
-            <group >
-       {a}
-     </group>
-    </Suspense>
-  )
-}
 
-const Nature1 = (props) => {
-  const group = useRef();
-  const nature1 = [];
-  for (let i = 0; i < 25; i++) {
-    nature1.push(
-      <group key={"object" + i}>
-        <Trees/>
-      </group>
-    );
-  }
-  return (
-    <group ref={group} {...props} dispose={null}>
-      <group rotation={[-Math.PI / 2, 0, 0]}>{nature1}</group>
-    </group>
-  );
+
+     return( 
+        <div>
+        <Switch>
+        <Route exact path='/' component={Home} />
+      <Route path='/play' component={Play} />
+        </Switch>
+      </div>
+     )
 };
 
 
-const Box = () => {
-  const [ref] = useBox(() => ({ mass: 1, position: [5, 20, 0] }));
-  return (
-    <mesh castShadow ref={ref}>
-      <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
-      <meshStandardMaterial attach="material" color="#CF1F55" />
-    </mesh>
-  );
-};
 
-const Plane = () => {
-  const [ref] = usePlane(() => ({
-    rotation: [-Math.PI / 2, 0, 0],
-    position: [0, 0, 0],
-  }));
-  return (
-    <mesh receiveShadow ref={ref}>
-      <planeBufferGeometry attach="geometry" args={[256, 256]} />
-      <meshStandardMaterial attach="material" color="#66ff66" />
-    </mesh>
-  );
-};
-
-export default function App() {
-  return (
-    <div>
-      <Canvas shadows>
-         <fog attach="fog" color="white" near={100} far={200} />
-        <ambientLight intensity={0.5} />
-
-        <pointLight castShadow position={[0, 100, 0]} intensity={0.3} />
-
-        <Sky
-          distance={450000}
-          sunPosition={[10, 10, 3]}
-          inclination={0}
-          azimuth={0.25}
-        />
-
-     
-
-        <Suspense fallback={null}>
-          <Nature />
-          <Path/>
-          <Property/>
-          <Doggo/>
-          <Nature1/>
-          <Physics gravity={[0, -30, 0]}>
-            <Player />
-            <Plane />
-            <Horse />
-            <Box />
-          </Physics>
-        </Suspense>
-
-        <PointerLockControls />
-      </Canvas>
-    </div>
-  );
-}
+export default App;
