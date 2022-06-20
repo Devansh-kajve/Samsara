@@ -9,8 +9,8 @@ padding: 14px;
 gap: 26px;
 
 position: absolute;
-width: 256px;
-height: 92px;
+width: 206px;
+height: 80px;
 left: 28%;
 top: 60%;
 
@@ -21,7 +21,7 @@ border-radius: 8px;
 font-family: 'Exo';
 font-style: normal;
 font-weight: 700;
-font-size: 28px;
+font-size: 26px;
 line-height: 150%;
 /* identical to box height, or 42px */
 
@@ -72,8 +72,8 @@ div{
     gap: 26px;
     
     position: absolute;
-width: 257px;
-height: 92px;
+width: 206px;
+height: 80px;
 left: 55%;
 top: 60%;
     
@@ -84,7 +84,7 @@ border-color:blueviolet;
 font-family: 'Exo';
 font-style: normal;
 font-weight: 700;
-font-size: 32px;
+font-size: 28px;
 line-height: 150%;
 /* identical to box height, or 48px */
 

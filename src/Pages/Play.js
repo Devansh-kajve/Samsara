@@ -111,6 +111,14 @@ export default function Play() {
 
         <PointerLockControls />
       </Canvas>
+      <div style={{ position: 'absolute', top: 630, left: 615, color:'whitesmoke' }}>
+        <pre>
+          Please wait for all the models to load
+          <br />
+          WASD to move, space to jump
+          <br />
+        </pre>
+      </div>
     </div>
   );
 }
