@@ -1,6 +1,6 @@
 
 
-#Connect{
+/* #Connect{
     display: flex;
 flex-direction: row;
 justify-content: center;
@@ -16,14 +16,14 @@ top: 60%;
 
 
 background: linear-gradient(85.63deg, #F827DE -9.39%, #2B14F9 114.93%);
-border-radius: 8px;
+border-radius: 12px;
 
 font-family: 'Exo';
 font-style: normal;
 font-weight: 700;
 font-size: 26px;
 line-height: 150%;
-/* identical to box height, or 42px */
+/* identical to box height, or 42px
 
 display: flex;
 align-items: center;
@@ -31,23 +31,34 @@ letter-spacing: 0.04em;
 
 color: #FFFFFF;
 
+box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.9);
+    cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease 0s;
+ 
+
 }
 
-button:hover{
-        transform: scale(1.05);
+#Connect:hover{
+border-color: #FFFFFF;
+
+box-shadow: 0px 15px 20px rgba(82, 7, 117, 0.9);
+transform: translateY(-7px);       
 }
+ */
+
 
 #title{
     position: absolute;
-width: 527px;
-height: 123px;
-left: 33%;
-top: 8%;
+width: 33vw;
+height: 10vh;
+left: 33vw;
+top: 8vh;
 
 font-family: 'Exo';
 font-style: normal;
 font-weight: 700;
-font-size: 128px;
+font-size: 135px;
 line-height: 98px;
 /* or 77% */
 
@@ -57,9 +68,6 @@ color: #FFFFFF;
 
 }
 
-div{
-    background-image:url(./../Assets/background.png) ;
-}
 
 #enter{
     box-sizing: border-box;
@@ -72,19 +80,19 @@ div{
     gap: 26px;
     
     position: absolute;
-width: 206px;
-height: 80px;
-left: 55%;
-top: 60%;
+width: 12vw;
+height: 10vh;
+left: 44vw;
+top: 55vh;
     
-    border-radius: 8px;
+    border-radius: 12px;
 border-color:blueviolet;
 
 
 font-family: 'Exo';
 font-style: normal;
 font-weight: 700;
-font-size: 28px;
+font-size: 25px;
 line-height: 150%;
 /* identical to box height, or 48px */
 
@@ -92,28 +100,51 @@ display: flex;
 align-items: center;
 letter-spacing: 0.04em;
 
+box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.9);
+cursor: pointer;
+outline: none;
+
+transition: all 0.3s ease 0s;
 color: #FFFFFF;
 background-color: black;
 }
 
+#enter:hover{
+    background-color: #FFFFFF;
+    color: blueviolet;
+  box-shadow: 0px 15px 20px rgba(51, 3, 71, 0.9);
+  transform: translateY(-7px);    
+    }
+
 span{
 
     position: absolute;
-    width: 588px;
-    height: 84px;
-    left: 35%;
-    top: 35%;
-
+    width: 33vw;
+    height: 10vh;
+    left: 37vw;
+    top: 35vh;
 
 font-family: 'DM Sans';
 font-style: normal;
 font-weight: 400;
-font-size: 28px;
+font-size: 26px;
 line-height: 42px;
 display: flex;
 align-items: center;
 letter-spacing: 0.016em;
 
 color: #FFFFFF;
+
+}
+
+.social{
+    position: fixed;
+        left: 50vw;
+        bottom: 20vh;
+        color: white;
+        width: 20vw;
+        height: 10vh;
+        Display: flex;
+       flex-direction: column;
 
 }

@@ -7,3 +7,4 @@ module.exports = async function (deployer) {
     const COST = web3.utils.toWei('1','ether')
   await deployer.deploy(Land, NAME, SYMBOL, COST);
 };
+ 

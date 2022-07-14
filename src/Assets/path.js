@@ -14,6 +14,7 @@ export function Path(props) {
                 receiveShadow
                 geometry={nodes["Path_Material_#116_0"].geometry}
                 material={nodes["Path_Material_#116_0"].material}
+              
               />
             </group>
     )

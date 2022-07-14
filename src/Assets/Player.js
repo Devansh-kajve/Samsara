@@ -2,6 +2,7 @@ import * as THREE from "three"
 import { useEffect, useRef, useState } from "react"
 import { useSphere } from "@react-three/cannon"
 import { useThree, useFrame } from "@react-three/fiber"
+import Axe from "./Axe"
 
 const SPEED = 5
 const keys = { KeyW: "forward", KeyS: "backward", KeyA: "left", KeyD: "right", Space: "jump" }
@@ -28,6 +29,7 @@ const usePlayerControls = () => {
 }
 
 export const Player = (props) => {
+  const axe = useRef()
   const [ref, api] = useSphere(() => ({ mass: 2, type: "Dynamic", position: [0, 10, 0], ...props }))
   const { forward, backward, left, right, jump } = usePlayerControls()
   const { camera } = useThree()
@@ -39,12 +41,22 @@ export const Player = (props) => {
     sideVector.set(Number(left) - Number(right), 0, 0)
     direction.subVectors(frontVector, sideVector).normalize().multiplyScalar(SPEED).applyEuler(camera.rotation)
     speed.fromArray(velocity.current)
+    axe.current.children[0].rotation.x = THREE.MathUtils.lerp(
+    axe.current.children[0].rotation.x,
+    Math.sin((speed.length() > 1) * state.clock.elapsedTime * 10) / 6,
+      0.1,
+    )
+    axe.current.rotation.copy(camera.rotation)
+    axe.current.position.copy(camera.position).add(camera.getWorldDirection(rotation).multiplyScalar(1))
     api.velocity.set(direction.x, velocity.current[1], direction.z)
     if (jump && Math.abs(velocity.current[1].toFixed(2)) < 0.05) api.velocity.set(velocity.current[0], 10, velocity.current[2])
   })
   return (
     <>
       <mesh ref={ref} />
+      <group ref={axe} onPointerMissed={(e) => (axe.current.children[0].rotation.x = -0.5)}>
+        <Axe position={[0.3, -0.40, 0.6]} />
+      </group>
     </>
   )
 }

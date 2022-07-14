@@ -14,7 +14,9 @@ ReactDOM.render(
     <Route
       component={({ history }) => {
         window.appHistory = history;
-        return <App />;
+        return <>
+        <App />
+        </>;
       }}
     />
   </Router>,

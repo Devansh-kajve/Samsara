@@ -1,14 +1,25 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
-import { useBox } from "@react-three/cannon";
+import { Color } from "three";
 
-export function House(props) {
+const clickHandler = () => {
+  setLandName(landInfo.name)
+  setLandId(landId)
+
+  if (landInfo.owner === '0x0000000000000000000000000000000000000000') {
+      setLandOwner('No Owner')
+      setHasOwner(false)
+  } else {
+      setLandOwner(landInfo.owner)
+      setHasOwner(true)
+  }
+}
+
+export function AdventureHouse(props) {
   const group = useRef();
   const { nodes, materials } = useGLTF("/plant.glb");
   return (
-    <group ref={group} {...props} dispose={null} scale={[0.02, 0.02, 0.02]}>
-      <group rotation={[-Math.PI / 2, 0, 0]}>
-        <group rotation={[Math.PI / 2, 0, 0]}>
+    <group ref={group} {...props} dispose={null} scale={[0.02, 0.02, 0.02]} position={position} onClick={clickHandler} args={size}>
           <group rotation={[-Math.PI / 2, 0, 0]}  >           
             <group position={[420.07, -447.5, 0]} >
               <mesh
@@ -18,79 +29,17 @@ export function House(props) {
                 material={nodes["House_Material_#149_0"].material}
               />
             </group>
-            
-            <group position={[-150.94, 310.2, -144.68]}>
-              <mesh
-                castShadow
-                receiveShadow
-                geometry={nodes["Sign_Material_#149_0"].geometry}
-                material={nodes["Sign_Material_#149_0"].material}
-              />
             </group>
-            
-            <group position={[820.07, -447.5, 0]} scale={2}>
-              <group
-                position={[52.07, 47.99, 6.68]}
-                rotation={[2.44, 0.04, -0.49]}
-                scale={[0.79, 0.79, 0.79]}
-              >
-                <mesh
-                  castShadow
-                  receiveShadow
-                  geometry={nodes["Pond_Rocks_Material_#116_0"].geometry}
-                  material={nodes["Pond_Rocks_Material_#116_0"].material}
-                />
-              </group>
-              <group
-                position={[-2.09, 2.61, 3.71]}
-                rotation={[Math.PI, 0, 0]}
-                scale={[1, 0.87, 1]}
-              >
-                <group position={[-0.76, -33.31, 9.74]}>
-                  <mesh
-                    castShadow
-                    receiveShadow
-                    geometry={nodes["Duck_Material_#102_0"].geometry}
-                    material={nodes["Duck_Material_#102_0"].material}
-                  />
-                </group>
-              </group>
-              <group
-                position={[-2.26, -66.65, -1.86]}
-                rotation={[0, 0, -0.87]}
-                scale={[0.48, 0.48, 0.59]}
-              >
-                <group position={[0, 0, 49.19]}>
-                  <mesh
-                    castShadow
-                    receiveShadow
-                    geometry={nodes["bulrush_Material_#22_0"].geometry}
-                    material={nodes["bulrush_Material_#22_0"].material}
-                  />
-                </group>
-              </group>
-              <mesh 
-              position={[-5,0,1]}
-                castShadow
-                receiveShadow
-                geometry={nodes["Pond_Material_#149_0"].geometry}
-                material={nodes["Pond_Material_#149_0"].material}
-              />
-            </group>
-          
-            </group>
-        </group>
-      </group>
     </group>
   );
 }
 
    
-  export function House1(props) {
+  export function StoneHouse(props) {
   const group = useRef();
   const { nodes, materials } = useGLTF("/house1-draco.glb");
   return (
-    <group ref={group} {...props} dispose={null} scale={[5, 5, 5]} position={[30,3,13]}>
+    <group ref={group} {...props} dispose={null} scale={[5, 5, 5]} position={[30,3,13]} position={position} onClick={clickHandler} args={size}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
         <group rotation={[Math.PI / 2, 0, 0]}>
           <mesh
@@ -181,7 +130,7 @@ export function House(props) {
   const group = useRef();
   const { nodes, materials } = useGLTF("/mcdonald-draco.glb");
   return (
-    <group ref={group} {...props} dispose={null} scale={[0.01, 0.01, 0.01]} position={[-60, 0, 15]}>
+    <group ref={group} {...props} dispose={null} scale={[0.01, 0.01, 0.01]} position={[-60, 0, 15]} position={position} onClick={clickHandler} args={size}>
       <group position={[0, -8.16, -3.28]} rotation={[Math.PI / 2,0 , Math.PI ]}>
         <group rotation={[-Math.PI, 0, 0]} >
           <group position={[0, -221.75, 241.68]}>
@@ -318,11 +267,11 @@ export function House(props) {
   );
 }
 
-  export function House2(props) {
+  export function ModernHouse(props) {
   const group = useRef();
   const { nodes, materials } = useGLTF("/house2-draco.glb");
   return (
-    <group ref={group} {...props} dispose={null} scale={[0.00125, 0.00125, 0.00125]} position={[50, 0.1, 8]}>
+    <group ref={group} {...props} dispose={null} scale={[0.00125, 0.00125, 0.00125]} position={[50, 0.1, 8]} position={position} onClick={clickHandler} args={size}>
      <group position={[0.04, 0, 0.04]} rotation={[-Math.PI / 2, 0, -1.5]}>
         <group rotation={[Math.PI / 2, 0, 0]}>
           <mesh
@@ -1086,11 +1035,11 @@ export function House(props) {
 }
 
 
-  export function House3(props) {
+  export function Apartment(props) {
   const group = useRef();
   const { nodes, materials } = useGLTF("/house3-draco.glb");
   return (
-    <group ref={group} {...props} dispose={null} position={[-40,0.1,13]} scale={[0.8, 0.8, 0.8]}>
+    <group ref={group} {...props} dispose={null} position={[-40,0.1,13]} scale={[0.8, 0.8, 0.8]} position={position} onClick={clickHandler} args={size}>
     <group rotation={[-Math.PI / 2, 0, Math.PI / 2]}>
       <group rotation={[Math.PI / 2, 0, 0]}>
         <group rotation={[Math.PI / 2, 0, 0]}>
@@ -1180,5 +1129,15 @@ export function House(props) {
         </group>
       </group>
     </group>
+  );
+}
+
+
+export function EmptyLand(props) {
+  return (
+      <mesh position={[-24, 0.12, 12]} scale={[18,13, 1]} rotation={[-Math.PI/2, 0, 0]} position={position} onClick={clickHandler} args={size}>
+            <planeBufferGeometry attach="geometry"/>
+            <meshStandardMaterial color={"brown"} metalness={0.5} roughness={0} />
+        </mesh>
   );
 }

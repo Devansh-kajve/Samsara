@@ -1,14 +1,11 @@
 import {React ,Suspense, useState, useEffect } from 'react';
 import { Route, Router, Switch } from 'react-router-dom';
 import './App.css';
-import Home from './Pages/Home'
-import Play from './Pages/Play';
+import Home from './Components/Home'
+import Play from './Components/Play';
 
 
 const App = () => { 
-
-
-
      return( 
         <div>
         <Switch>

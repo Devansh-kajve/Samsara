@@ -1,6 +1,5 @@
-import { IntType } from "three"
-
-const artifacts.require("./Land");
+const Land = artifacts.require("./Land");
+const EVM_REVERT = 'VM Exception while processing transaction: revert'
 
 require('chai')
 .use(require('chai-as-promised'))
@@ -11,7 +10,7 @@ contract("Land", ([owner1, owner2]) => {
     const SYMBOL = "SB"
     const COST = web3.utils.toWei('1','ether')
 
-    let Land, result
+    let land, result
 
     beforeEach( async () => {
         land = await Land.new(NAME, SYMBOL, COST)
@@ -35,32 +34,32 @@ contract("Land", ([owner1, owner2]) => {
 
         it("returns the max supply", async () => {
             result = await land.maxSupply()
-            result.toString().should.equal('1')
+            result.toString().should.equal('6')
         })
 
         it("returns the building/land available", async () => {
             result = await land.getBuildings()
-            result.toString().should.equal(1)
+            result.length.should.equal(6)
         })
     })
 
     describe("Minting", () => {
         describe("Success", () => {
             beforeEach(async () => {
-                result =  land.mint(1, {from: owner1, value: COST})
+                result = await land.mint(1, {from: owner1, value: COST})
             })
           
 
-          it("Update owner address"), async () => {
-            result = land.ownerOf(1)
-            result.should.equal(owner1)
-        }
+          it("Update owner address", async () => {
+            result = await land.ownerOf(1)
+           await result.should.equal(owner1)
+        })
 
         
-        it("Update building details"), async () => {
-            result = land.getBuildings(1)
-            result.owner.should.equal(owner1)
-        }
+        it("Update building details", async () => {
+            result = await land.getBuildings(1)
+           await result.owner.should.equal(owner1)
+        })
         })
 
         describe('Failure', () => {
@@ -93,7 +92,7 @@ contract("Land", ([owner1, owner2]) => {
             })
 
             it('Updates building details', async () => {
-                result = await land.getBuilding(1)
+                result = await land.getBuildings(1)
                 result.owner.should.equal(owner2)
             })
         })
@@ -105,7 +104,7 @@ contract("Land", ([owner1, owner2]) => {
 
             it('Prevents transfers without approval', async () => {
                 await land.mint(1, { from: owner1, value: COST })
-                await land.transferFrom(owner1, owner2, 1, { from: owner2 }).should.be.rejectedWith(EVM_REVERT)
+                 await land.transferFrom(owner1, owner2, 1, { from: owner2 }).should.be.rejectedWith(EVM_REVERT)
             })
         })
     })
