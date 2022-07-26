@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 contract Land is ERC721 {
-    uint256 public cost = 0.1 ether;
+    uint256 public cost = 100 finney;
     uint256 public maxSupply = 6;
     uint256 public totalSupply = 0;
 
