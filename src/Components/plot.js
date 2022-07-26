@@ -12,10 +12,11 @@ const Plot = ({ position, size, landId, landInfo, setLandName, setLandOwner, set
         }
     }
 
+
     return (
-        <mesh position={position} onClick={clickHandler}>
-            <planeBufferGeometry attach="geometry" args={size} />
-            <meshStandardMaterial color={"#11E169"} metalness={0.5} roughness={0} />
+        <mesh position={position} onClick={clickHandler} rotation={[-Math.PI/2, 0, 0]}>
+            <planeBufferGeometry attach="geometry" args={[15, 13, 1]} />
+            <meshStandardMaterial color={"#ffdf00"} metalness={0.5} roughness={0} />
         </mesh>
     );
 }

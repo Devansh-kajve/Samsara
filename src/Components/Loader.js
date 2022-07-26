@@ -1,26 +1,11 @@
 import React, {useEffect} from 'react'
+import { Html, useProgress } from '@react-three/drei'
 import { useHistory} from 'react-router-dom'
 import './Loader.css'
 function Loader() {
-  const history = useHistory()
-
-  useEffect(() => {
-    setTimeout(() => {
-      history.push('/play')
-    }, 2000)
-  }, [])
+  const { progress } = useProgress()
 return(
-   <div className='main'>
-    <div>
-        <pre>
-          Please wait for all the models to load
-          <br />
-          WASD to move, space to jump
-          <br />
-        </pre>
-      </div>
-<div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-</div>
+<Html>{progress}% loaded...</Html>
 )}
 
 export default Loader;

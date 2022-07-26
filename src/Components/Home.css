@@ -139,12 +139,23 @@ color: #FFFFFF;
 
 .social{
     position: fixed;
-        left: 50vw;
-        bottom: 20vh;
+        left: 35vw;
+        bottom: 10vh;
         color: white;
-        width: 20vw;
-        height: 10vh;
+        font-size: large;
         Display: flex;
        flex-direction: column;
+       justify-content: center;
+       width: 15px;
+       height: 10px;
+}
 
+.links{
+    position: relative;
+bottom: 15px;
+    color: white;
+    width: 10px;
+    height: 10px;
+    Display: flex;
+   flex-direction: row;
 }

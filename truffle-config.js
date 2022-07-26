@@ -23,7 +23,7 @@
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
 
-module.exports = {
+
   /**
    * Networks define how you connect to your ethereum client and let you set the
    * defaults web3 uses to send transactions. If you don't specify one truffle
@@ -34,18 +34,32 @@ module.exports = {
    * $ truffle test --network <network-name>
    */
 
-  networks: {
+
     // Useful for testing. The `development` name is special - truffle uses it by default
     // if it's defined here and no other network is specified at the command line.
     // You should run a client (like ganache, geth, or parity) in a separate terminal
     // tab if you use this network and you must also set the `host`, `port` and `network_id`
     // options below to some value.
     //
-    development: {
-     host: "127.0.0.1",     // Localhost (default: none)
-     port: 8545,            // Standard Ethereum port (default: none)
-     network_id: "*",       // Any network (default: none)
-    },
+    const HDWalletProvider = require("@truffle/hdwallet-provider");
+
+    const MNEMONIC = 'there unit melody tunnel execute crush blouse later file canal issue dish'
+const INFURA_API_URL = 'https://goerli.infura.io/v3/2a60d3d94e99454ea14c8033630c1dde'
+module.exports = {
+    networks: {
+        ganache: {
+          host: "localhost",
+          port: 7545,
+          network_id: "*",
+        },
+        goerli: {
+          provider: function() {
+            return new HDWalletProvider(MNEMONIC, INFURA_API_URL);
+          },
+          network_id: '5',
+        }
+    } , 
+
     //
     // An additional network, but with some advanced options…
     // advanced: {
@@ -74,7 +88,6 @@ module.exports = {
     //   network_id: 2111,   // This network is yours, in the cloud.
     //   production: true    // Treats this network as if it was a public net. (default: false)
     // }
-  },
 
   // Set default mocha options here, use special reporters, etc.
   mocha: {
@@ -96,7 +109,7 @@ contracts_build_directory: './src/abis/',
       // }
     }
   },
-
+};
   // Truffle DB is currently disabled by default; to enable it, change enabled:
   // false to enabled: true. The default storage location can also be
   // overridden by specifying the adapter settings, as shown in the commented code below.
@@ -117,4 +130,3 @@ contracts_build_directory: './src/abis/',
   //     }
   //   }
   // }
-};
