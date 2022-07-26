@@ -91,6 +91,7 @@ const loadBlockchainData = async() => {
     
 
     const cost = await land.methods.cost().call()
+    console.log(cost)
     setCost(web3.utils.fromWei(cost.toString(), 'ether'))
 
     const buildings = await land.methods.getBuildings().call()
