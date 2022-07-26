@@ -1,5 +1,5 @@
-import {React ,Suspense, useState, useEffect } from 'react';
-import { Route, Router, Switch } from 'react-router-dom';
+import {React} from 'react';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import Home from './Components/Home'
 import Play from './Components/Play';

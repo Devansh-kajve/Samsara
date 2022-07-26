@@ -4,19 +4,13 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 contract Land is ERC721 {
-    uint256 public cost = 1 ether;
+    uint256 public cost = 0.1 ether;
     uint256 public maxSupply = 6;
     uint256 public totalSupply = 0;
 
     struct Building {
         string name;
         address owner;
-        int256 posX;
-        int256 posY;
-        int256 posZ;
-        uint256 sizeX;
-        uint256 sizeY;
-        uint256 sizeZ;
     }
 
     Building[] public buildings;
@@ -29,20 +23,20 @@ contract Land is ERC721 {
         cost = _cost;
 
         buildings.push(
-            Building("Adventure house", address(0x0), 420.07, -447.5, 0, 0.02, 0.02, 0.02)
+            Building("Adventure house", address(0x0))
         );
-        buildings.push(Building("Stone House", address(0x0), 30,3,13, 5, 5, 5));
+        buildings.push(Building("Stone House", address(0x0)));
         buildings.push(
-            Building("Apartment", address(0x0), -40, 0.1, 13, 0.8, 0.8, 0.8)
-        );
-        buildings.push(
-            Building("McDonalds", address(0x0), -60, 0, 15, 0.01, 0.01, 0.01)
+            Building("Apartment", address(0x0))
         );
         buildings.push(
-            Building("Modern House", address(0x0),50, 0.1, 8, 0.00125, 0.00125, 0.00125)
+            Building("McDonalds", address(0x0))
         );
         buildings.push(
-            Building("Empty land", address(0x0), -24, 0.12, 12, 18, 13, 1)
+            Building("Modern House", address(0x0))
+        );
+        buildings.push(
+            Building("Empty land", address(0x0))
         );
     }
 
