@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 contract Land is ERC721{
 
-uint256 public cost = 1 ether;
+uint public cost = 0.01 ether;
 uint256 public maxSupply = 6;
 uint256 public totalSupply = 0;
 
@@ -19,7 +19,7 @@ Building[] public buildings;
 constructor(
         string memory _name,
         string memory _symbol,
-        uint256 _cost
+        uint _cost
     ) ERC721(_name, _symbol) {
         cost = _cost;
 
@@ -45,7 +45,7 @@ function mint(uint256 _id) public payable {
     uint256 supply = totalSupply;
     require(supply<=maxSupply);
     require(buildings[_id - 1].owner == address(0x0));
-    require(msg.value >= 1 ether);
+    require(msg.value >= 0.01 ether);
 
     buildings[_id - 1].owner = msg.sender;
     totalSupply = totalSupply + 1;

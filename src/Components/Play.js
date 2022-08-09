@@ -84,14 +84,14 @@ const loadBlockchainData = async() => {
     }
 
     const networkId = await web3.eth.net.getId()
-    console.log(networkId)
+    console.log(Land.networks[networkId].address)
 
     const land = new web3.eth.Contract(Land.abi, Land.networks[networkId].address)
     setLandContract(land)
     
 
     const cost = await land.methods.cost().call()
-    console.log(cost)
+    console.log(web3.utils.fromWei(cost.toString(), 'ether'))
     setCost(web3.utils.fromWei(cost.toString(), 'ether'))
 
     const buildings = await land.methods.getBuildings().call()
@@ -114,7 +114,7 @@ const web3Handler = async() =>{
 
 const buyHandler = async (_id) => {
   try {
-    await landContract.methods.mint(_id).send({ from: account, value: '1000000000000000000' })
+    await landContract.methods.mint(_id).send({ from: account, value: '10000000000000000' })
 
     const buildings = await landContract.methods.getBuildings().call()
     setBuildings(buildings)

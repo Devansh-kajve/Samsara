@@ -24,4 +24,4 @@ yarn-error.log*
 
 # Files
 
-/truffle-config.js
+/dotenv

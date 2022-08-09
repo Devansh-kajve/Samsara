@@ -8,7 +8,7 @@ require('chai')
 contract("Land", ([owner1, owner2]) => {
     const NAME = "Samsara Building"
     const SYMBOL = "SB"
-    const COST = web3.utils.toWei('1','ether')
+    const COST = web3.utils.toWei('0.01', 'ether')
 
     let land, result
 
