@@ -1,55 +1,9 @@
 
 
-/* #Connect{
-    display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 14px;
-gap: 26px;
-
-position: absolute;
-width: 206px;
-height: 80px;
-left: 28%;
-top: 60%;
-
-
-background: linear-gradient(85.63deg, #F827DE -9.39%, #2B14F9 114.93%);
-border-radius: 12px;
-
-font-family: 'Exo';
-font-style: normal;
-font-weight: 700;
-font-size: 26px;
-line-height: 150%;
-/* identical to box height, or 42px
-
-display: flex;
-align-items: center;
-letter-spacing: 0.04em;
-
-color: #FFFFFF;
-
-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.9);
-    cursor: pointer;
-  outline: none;
-  transition: all 0.3s ease 0s;
- 
-
-}
-
-#Connect:hover{
-border-color: #FFFFFF;
-
-box-shadow: 0px 15px 20px rgba(82, 7, 117, 0.9);
-transform: translateY(-7px);       
-}
- */
-
-
 #title{
-    position: absolute;
+    Display: flex;
+    flex-direction: column;
+    position: relative;
 width: 33vw;
 height: 10vh;
 left: 33vw;
@@ -74,8 +28,7 @@ color: #FFFFFF;
 
     /* Auto layout */
     
-    display: grid;
-    justify-content: center;
+        justify-content: center;
     align-items: center;
     gap: 26px;
     
@@ -117,11 +70,10 @@ background-color: black;
     }
 
 span{
-
     position: absolute;
     width: 33vw;
     height: 10vh;
-    left: 37vw;
+    left: 35vw;
     top: 35vh;
 
 font-family: 'DM Sans';
@@ -132,30 +84,16 @@ line-height: 42px;
 display: flex;
 align-items: center;
 letter-spacing: 0.016em;
-
+row-gap: 2;
 color: #FFFFFF;
-
 }
 
-.social{
-    position: fixed;
-        left: 35vw;
-        bottom: 10vh;
-        color: white;
-        font-size: large;
-        Display: flex;
-       flex-direction: column;
-       justify-content: center;
-       width: 15px;
-       height: 10px;
+a{
+    margin-left: 10px;
 }
 
-.links{
-    position: relative;
-bottom: 15px;
-    color: white;
-    width: 10px;
-    height: 10px;
-    Display: flex;
-   flex-direction: row;
+a:hover{
+    margin-left: 10px;
+    color: blue;
+    transition: linear;
 }

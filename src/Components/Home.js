@@ -5,6 +5,10 @@ import Web3 from 'web3';
 import {Suspense, useState, useEffect,  } from 'react';
 import Icon from '../Assets/Bg';
 import Loader from './Loader';
+import {ReactComponent as Github} from './../Assets/Images/github.svg'
+import {ReactComponent as Twitter} from './../Assets/Images/twitter.svg'
+import Mail from './../Assets/Images/mail-.png'
+import {ReactComponent as LinkedIn} from './../Assets/Images/linkedin.svg'
 
 
 
@@ -30,19 +34,10 @@ const Home = () => {
   //   )}
 
     return (
-    <div >
-     
+    <div className='page'>
     <h1 id="title">Samsāra</h1>
-    <span>A Metaverse Project by Devansh Kajve</span>
+    <span>A Metaverse Project by <a href='#'>Devansh kajve</a></span>
    <button id="enter" onClick={() => {history.push('/play')}}>Enter</button>
-   <div className='social'>
-    <h2>Contact Me</h2>
-    <div className='links'><Link to='#'><img src={require('./../Assets/Images/linkedln.png')} alt='linkedln'/></Link>
-      <Link to='#'><img src={require('./../Assets/Images/twitter.png')} alt='twitter'/></Link>
-   <Link to='#'><img src={require('./../Assets/Images/github.png')} alt='github'/></Link>
-   <Link to='#'><img src={require('./../Assets/Images/mail.png')} alt='mail'/></Link>
-   </div>
-   </div>
     </div>
     )
   }

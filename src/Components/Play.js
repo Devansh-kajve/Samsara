@@ -16,6 +16,7 @@ import Doggo from "../Assets/Doggo";
 import "./Play.css";
 import AllNature from "../Assets/AllNature";
 import Loader from "./Loader";
+import { Text } from "../Assets/Text";
 
 const buildPosition = [
   [4.20, 0, 10.2],

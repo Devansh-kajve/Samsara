@@ -1,12 +1,13 @@
 import React, { useRef } from "react";
 import { Plant, Pond } from "../Assets/plant";
 import { Grass, Grass1 } from "../Assets/grass";
+import { Text } from "./Text";
 import Trees from "../Assets/trees";
 
 //  const AllNature = () => {
 
     const AllNature = (props) => {
-    const nature = [<Pond />,];
+    const nature = [<Pond />,<Text/>,];
     const group = useRef();
     for (let i = 0; i < 25; i++) {
       nature.push(
@@ -31,11 +32,5 @@ import Trees from "../Assets/trees";
         </group>
         )
   };
-
-//   return (
-//     <Nature/>
-//   );
-
-// }
 
 export default AllNature

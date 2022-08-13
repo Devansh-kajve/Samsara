@@ -1,4 +1,4 @@
-
+import logo from './../Assets/Images/logo.png';
 import './Navbar.css';
 
 
@@ -7,11 +7,10 @@ const Navbar = ({ web3Handler, account }) => {
         <nav className="flex-between">
             <a
                 className='flex'
-                href="http://www.dappuniversity.com/bootcamp"
-                target="_blank"
+                target="./"
                 rel="noopener noreferrer"
             >
-                <img  className="App-logo" alt="logo" />
+                <img src={logo} className="App-logo" alt="logo" />
                 Samsara
             </a>
 
