@@ -5,10 +5,6 @@ import Web3 from 'web3';
 import {Suspense, useState, useEffect,  } from 'react';
 import Icon from '../Assets/Bg';
 import Loader from './Loader';
-import {ReactComponent as Github} from './../Assets/Images/github.svg'
-import {ReactComponent as Twitter} from './../Assets/Images/twitter.svg'
-import Mail from './../Assets/Images/mail-.png'
-import {ReactComponent as LinkedIn} from './../Assets/Images/linkedin.svg'
 
 
 
