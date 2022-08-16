@@ -4,7 +4,6 @@ import { useGLTF, useAnimations } from "@react-three/drei";
 export default function Doggo(props) {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF("/dogrig.glb");
-  // const { actions } = useAnimations(animations, group);
   return (
     <group ref={group} {...props} dispose={null} position={[-4,0,-2]} scale={2} rotation={[0,-Math.PI/2,0]}>
       <group name="Scene">

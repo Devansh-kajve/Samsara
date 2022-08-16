@@ -4,8 +4,6 @@ import { Grass, Grass1 } from "../Assets/grass";
 import { Text } from "./Text";
 import Trees from "../Assets/trees";
 
-//  const AllNature = () => {
-
     const AllNature = (props) => {
     const nature = [<Pond />,<Text/>,];
     const group = useRef();

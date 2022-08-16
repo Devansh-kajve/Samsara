@@ -1,7 +1,7 @@
 import { Suspense, useState, useEffect } from "react";
 import { Path } from "../Assets/path";
-import { Canvas, useLoader } from "@react-three/fiber";
-import { Center, PointerLockControls, Sky, Stars } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
+import { PointerLockControls, Sky } from "@react-three/drei";
 import { Player } from "../Assets/Player";
 import Navbar from "./Navbar";
 import Plot from "./plot";
@@ -16,7 +16,6 @@ import Doggo from "../Assets/Doggo";
 import "./Play.css";
 import AllNature from "../Assets/AllNature";
 import Loader from "./Loader";
-import { Text } from "../Assets/Text";
 
 const buildPosition = [
   [4.20, 0, 10.2],
@@ -233,7 +232,7 @@ return (
         <pre>
           Please wait for all the models to load
           <br />
-          WASD to move, space to jump
+          WASD to move, space to jump, esc to show cursor
           <br />
           Click on a plot to buy it after connecting wallet
         </pre>

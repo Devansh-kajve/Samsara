@@ -1,10 +1,7 @@
-import React, {Component} from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 import './Home.css'
 import Web3 from 'web3';
-import {Suspense, useState, useEffect,  } from 'react';
-import Icon from '../Assets/Bg';
-import Loader from './Loader';
 
 
 
@@ -24,10 +21,6 @@ const Home = () => {
    }
   }
 
-
-  // if ((this.state.start)){ return(
-  //   <Loader/>
-  //   )}
 
     return (
     <div className='page'>
