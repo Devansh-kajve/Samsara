@@ -25,7 +25,7 @@ const Home = () => {
     return (
     <div className='page'>
     <h1 id="title">Samsāra</h1>
-    <span>A Metaverse Project by <a href='#'>Devansh kajve</a></span>
+    <span>A Metaverse Project by <a target="_blank" href='https://linkfree.me/DevanshK'>Devansh kajve</a></span>
    <button id="enter" onClick={() => {history.push('/play')}}>Enter</button>
     </div>
     )

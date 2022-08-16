@@ -5,9 +5,9 @@ import './Navbar.css';
 const Navbar = ({ web3Handler, account }) => {
     return (
         <nav className="flex-between">
-            <a
+            <a 
+                href="/"
                 className='flex'
-                target="./"
                 rel="noopener noreferrer"
             >
                 <img src={logo} className="App-logo" alt="logo" />
